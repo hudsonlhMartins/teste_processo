@@ -1,0 +1,21 @@
+{
+    "aporte": {
+        "required": "Aporte não pode ser vazio",
+        "typeError": "Aporte não pode ser nulo"
+    },
+    "prazo": {
+        "required": "Pazo não pode ser vazio",
+        "typeError": "Prazo não pode ser nulo"
+
+    },
+    "aportemes": {
+        "required": "Aporte não pode ser vazio",
+        "typeError": "Aporte não pode ser nulo"
+
+    },
+    "rentabilidade": {
+        "required": "Rentabilidade não pode ser vazio",
+        "typeError": "Rentabilidade não pode ser nulo"
+
+    }
+}
