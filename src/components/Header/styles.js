@@ -38,4 +38,16 @@ export const Line = styled.div`
         top: -1.2rem;
         font-size: 0.9rem;
     }
+
+    @media (max-width: 572px){
+        span{
+            display: none;
+        }
+    }
+
+    @media (max-width: 430px){
+        display: none;
+        background: transparent;
+    }
+
 `;

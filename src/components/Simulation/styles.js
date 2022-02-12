@@ -118,6 +118,11 @@ export const Content = styled.ul`
         li{
             width: 160px;
         }
+    }
 
+    @media (max-width: 360px){
+        li{
+            width: 150px;
+        }
     }
 `;

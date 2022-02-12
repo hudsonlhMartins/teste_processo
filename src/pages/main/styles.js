@@ -83,6 +83,22 @@ export const SectionLeftContent = styled.div`
         }
     }
 
+    @media (max-width: 420px){
+        input{
+            width: 150px;
+        }
+
+        label#aporte{
+            margin-top: 3.77rem;
+        }
+    }
+
+    @media (max-width: 362px){
+        input{
+            width: 130px;
+        }
+    }
+
 
 `;
 
@@ -104,6 +120,15 @@ export const Button = styled.button`
             background: var(--orange-500);
 
         }
+
+        @media (max-width: 420px){
+            width: 150px;
+        }
+
+        @media (max-width: 362px){
+            width: 130px;
+        
+    }
 `;
 
 export const Buttons = styled.div`
