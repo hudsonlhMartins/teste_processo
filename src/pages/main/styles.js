@@ -135,13 +135,16 @@ export const Buttons = styled.div`
 
     margin-top: 0.5rem;
     margin-bottom: 1rem;
+    display: flex;
 
     button{
         background: #fff;
         padding: 0.8rem 1.4rem;
         border: 1px solid #000;
         outline: none;
-
+        display: flex;
+        align-items: center;
+        gap: 0.2rem;
         &:first-child{
             //background: var(--orange-500);
             border-top-left-radius: 0.35rem;
@@ -157,6 +160,9 @@ export const Buttons = styled.div`
             background: var(--orange-500);
             color: #fff;
 
+        }
+        svg{
+            color: #fff;
         }
 
       

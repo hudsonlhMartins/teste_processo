@@ -48,6 +48,12 @@ export const Content = styled.ul`
         }
     }
 
+    @media (max-width: 1258px){
+        li{
+            width: 185px;
+        }
+    }
+
     @media (max-width: 1170px){
         li{
             width: 170px;

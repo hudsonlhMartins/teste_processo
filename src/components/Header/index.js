@@ -11,10 +11,10 @@ export function Header (){
         <Container>
             <Content>
                 <div>
-                    <GrLinkPrevious color='#787878' fontSize={20} />
-                    <GrLinkNext color='#787878' fontSize={20} />
-                    <GrClose color='#787878' fontSize={20} />
-                    <GrHome color='#787878' fontSize={20} />
+                    <GrLinkPrevious color='#787878' size={20} />
+                    <GrLinkNext color='#787878' size={20} />
+                    <GrClose color='#787878' size={20} />
+                    <GrHome color='#787878' size={20} />
                 </div>
                 <Line>
                     <span>Calculadora de investimentos</span>

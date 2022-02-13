@@ -1,5 +1,6 @@
 import { Header } from "../../components/Header";
 import { Button, Buttons, Container, Content, ContentInput, SectionLeft, SectionLeftContent } from "./styles";
+import {FiCheck} from 'react-icons/fi'
 import {useForm} from 'react-hook-form'
 import {yupResolver} from '@hookform/resolvers/yup'
 import * as yup from 'yup'
@@ -89,8 +90,14 @@ export function Main() {
                     <span>Redimento</span>
                   </div>
                   <Buttons>
-                    <button type="button" className={typeRendimento == 'bruto' ? 'active' : ''} onClick={handleTypeRendimentoBruto}>Buto</button>
-                    <button type="button" className={typeRendimento == 'liquido' ? 'active' : ''} onClick={handleTypeRendimentoLiquido}>Liquido</button>
+                    <button type="button" className={typeRendimento == 'bruto' ? 'active' : ''} onClick={handleTypeRendimentoBruto}>
+                      {typeRendimento == 'bruto' &&(<FiCheck color="#fff" size={15} />)}
+                      Bruto
+                    </button>
+                    <button type="button" className={typeRendimento == 'liquido' ? 'active' : ''} onClick={handleTypeRendimentoLiquido}>
+                    {typeRendimento == 'liquido' &&(<FiCheck color="#fff" size={15} />)}
+                      Liquido
+                    </button>
                   </Buttons>
                   
                  
@@ -121,9 +128,18 @@ export function Main() {
                     <span>Tipo de indexação</span>
                   </div>
                   <Buttons>
-                    <button type="button" className={activeIndex == 'pre' ? 'active' : ''} onClick={ActiveFunctionPre}>PRÈ</button>
-                    <button type="button" className={activeIndex == 'pos' ? 'active' : ''} onClick={ActiveFunctionPos}>POS</button>
-                    <button type="button" className={activeIndex == 'ipca' ? 'active' : ''} onClick={ActiveFunctionFixado}>FIXADO</button>
+                    <button type="button" className={activeIndex == 'pre' ? 'active' : ''} onClick={ActiveFunctionPre}>
+                    {activeIndex == 'pre' &&(<FiCheck color="#fff" size={15} />)}
+                      PRÈ
+                    </button>
+                    <button type="button" className={activeIndex == 'pos' ? 'active' : ''} onClick={ActiveFunctionPos}>
+                    {activeIndex == 'pos' &&(<FiCheck color="#fff" size={15} />)}
+                      POS
+                    </button>
+                    <button type="button" className={activeIndex == 'ipca' ? 'active' : ''} onClick={ActiveFunctionFixado}>
+                    {activeIndex == 'ipca' &&(<FiCheck color="#fff" size={15} />)}
+                      FIXADO
+                    </button>
 
                   </Buttons>
                   
