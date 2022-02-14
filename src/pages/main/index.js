@@ -8,20 +8,21 @@ import { InputError } from "../../components/InputError";
 import { useEffect, useState } from "react";
 import { api } from "../../services/api";
 import { Simulation } from "../../components/Simulation";
+import { InputMoney } from "../../components/Form/InputMoney";
 
 
 
 const submitValueSchema = yup.object().shape({
-  aporte: yup.number().required(),
+  aporte: yup.string().required(),
   prazo: yup.number().required(),
-  aportemes: yup.number().required(),
+  aportemes: yup.string().required(),
   rentabilidade: yup.number().required(),
 })
 
 
 export function Main() {
 
-  const {register, handleSubmit, formState, reset} = useForm({
+  const {register, handleSubmit, formState, reset, control} = useForm({
     resolver: yupResolver(submitValueSchema)
   })
   const [activeIndex, setActiveIndex] = useState('pos')
@@ -67,7 +68,6 @@ export function Main() {
   useEffect(()=>{
     const getApi = async ()=>{
       const res = await api.get('/indicadores')
-      //console.log(res)
       setIndicadores(res.data)
     }
     getApi()
@@ -102,7 +102,8 @@ export function Main() {
                   
                  
                   <label id="aporte" className={formState.errors.aporte ? 'error' : ''} >Aporte Inicial</label>
-                  <input className={formState.errors.aporte ? 'errorInput' : ''} type='text' id='aporte' {...register('aporte')}/>
+                  <InputMoney  className={formState.errors.aporte ? 'errorInput' : ''} type='text' id='aporte' {...register('aporte')}/>
+                  
                   {formState.errors.aporte && (
                    <InputError type={formState.errors.aporte.type}  field='aporte'/>
                   )}
@@ -144,7 +145,7 @@ export function Main() {
                   </Buttons>
                   
                   <label id="aportemes" className={formState.errors.aportemes ? 'error' : ''} >Aporte Mensal</label>
-                  <input className={formState.errors.aportemes ? 'errorInput' : ''} type='text' id='aportemes' {...register('aportemes')}/>
+                  <InputMoney className={formState.errors.aportemes ? 'errorInput' : ''} type='text' id='aportemes' {...register('aportemes')}/>
                   {formState.errors.aportemes && (
                     <InputError type={formState.errors.aportemes.type}  field='aportemes'/>
 
