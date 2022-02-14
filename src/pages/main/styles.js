@@ -52,7 +52,7 @@ export const SectionLeftContent = styled.div`
             color: red;
         }
     }
-    div span{
+    div i{
         font-size: 0.8rem;
         color: #111;
     }
@@ -69,11 +69,6 @@ export const SectionLeftContent = styled.div`
             border-bottom: 1px solid red;
 
         }
-    }
-    span{
-        color: red;
-        font-size: 0.7rem;
-        margin-top: 0.3rem;
     }
 
 
@@ -184,7 +179,15 @@ export const Buttons = styled.div`
 `;
 
 export const ContentInput = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 0;
     position: relative;
 
-    
+    span{
+        position: absolute;
+        bottom: -12px;
+        color: red;
+        font-size: 0.7rem;
+    }
 `;

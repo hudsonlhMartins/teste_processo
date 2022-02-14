@@ -22,7 +22,7 @@ const submitValueSchema = yup.object().shape({
 
 export function Main() {
 
-  const {register, handleSubmit, formState, reset, control} = useForm({
+  const {register, handleSubmit, formState, reset} = useForm({
     resolver: yupResolver(submitValueSchema)
   })
   const [activeIndex, setActiveIndex] = useState('pos')
@@ -33,8 +33,6 @@ export function Main() {
   const [simulation, setSimulation] = useState([])
 
   const handleSubmitValues = async (values)=>{
-    //console.log(values)
-
     const res = await api.get(`/simulacoes?tipoIndexacao=${activeIndex}&tipoRendimento=${typeRendimento}`)
 
     setSimulation(res.data)
@@ -43,19 +41,15 @@ export function Main() {
   const ActiveFunctionPos = () =>{
     setActiveIndex('pos')
   }
-
   const ActiveFunctionPre = () =>{
     setActiveIndex('pre')
   }
-
   const ActiveFunctionFixado = () =>{
     setActiveIndex('ipca')
   }
-
   const handleTypeRendimentoBruto = () =>{
     setTypeRendimento('bruto')
   }
-
   const handleTypeRendimentoLiquido = () =>{
     setTypeRendimento('liquido')
   }
@@ -87,7 +81,7 @@ export function Main() {
                 <SectionLeftContent>
 
                   <div>
-                    <span>Redimento</span>
+                    <i>Redimento</i>
                   </div>
                   <Buttons>
                     <button type="button" className={typeRendimento == 'bruto' ? 'active' : ''} onClick={handleTypeRendimentoBruto}>
@@ -100,21 +94,22 @@ export function Main() {
                     </button>
                   </Buttons>
                   
-                 
-                  <label id="aporte" className={formState.errors.aporte ? 'error' : ''} >Aporte Inicial</label>
-                  <InputMoney  className={formState.errors.aporte ? 'errorInput' : ''} type='text' id='aporte' {...register('aporte')}/>
-                  
-                  {formState.errors.aporte && (
-                   <InputError type={formState.errors.aporte.type}  field='aporte'/>
-                  )}
-                  
 
-                  <label id="prazo" >prazo (ao mes)</label>
-                  <input className={formState.errors.prazo ? 'errorInput' : ''} type='text' id='prazo' {...register('prazo')}/>
+                  <ContentInput>
+                    <label id="aporte" className={formState.errors.aporte ? 'error' : ''} >Aporte Inicial</label>
+                    <InputMoney  className={formState.errors.aporte ? 'errorInput' : ''} type='text' id='aporte' {...register('aporte')}/>
+                    {formState.errors.aporte && (
+                    <InputError type={formState.errors.aporte.type}  field='aporte'/>
+                    )}
+                  </ContentInput>
                   
-                  {formState.errors.prazo && (
-                    <InputError type={formState.errors.prazo.type}  field='prazo'/>
-                  )}
+                  <ContentInput>
+                    <label id="prazo" >prazo (ao mes)</label>
+                    <input className={formState.errors.prazo ? 'errorInput' : ''} type='text' id='prazo' {...register('prazo')}/>
+                    {formState.errors.prazo && (
+                      <InputError type={formState.errors.prazo.type}  field='prazo'/>
+                    )}
+                  </ContentInput>
 
                   <label id="ipca" >IPCA (ao ano)</label>
                   <input type='text' disabled value={indicadores[1]?.valor +'%'} id='ipca'/>
@@ -126,7 +121,7 @@ export function Main() {
 
                 <SectionLeftContent>
                   <div>
-                    <span>Tipo de indexação</span>
+                    <i>Tipo de indexação</i>
                   </div>
                   <Buttons>
                     <button type="button" className={activeIndex == 'pre' ? 'active' : ''} onClick={ActiveFunctionPre}>
@@ -144,18 +139,22 @@ export function Main() {
 
                   </Buttons>
                   
-                  <label id="aportemes" className={formState.errors.aportemes ? 'error' : ''} >Aporte Mensal</label>
-                  <InputMoney className={formState.errors.aportemes ? 'errorInput' : ''} type='text' id='aportemes' {...register('aportemes')}/>
-                  {formState.errors.aportemes && (
-                    <InputError type={formState.errors.aportemes.type}  field='aportemes'/>
+                  <ContentInput>
+                    <label id="aportemes" className={formState.errors.aportemes ? 'error' : ''} >Aporte Mensal</label>
+                    <InputMoney className={formState.errors.aportemes ? 'errorInput' : ''} type='text' id='aportemes' {...register('aportemes')}/>
+                    {formState.errors.aportemes && (
+                      <InputError type={formState.errors.aportemes.type}  field='aportemes'/>
 
-                  )}
+                    )}
+                  </ContentInput>
 
-                  <label className={formState.errors.rentabilidade ? 'error' : ''} id="rentabilidade" >Rentabilidade</label>
-                  <input className={formState.errors.rentabilidade ? 'errorInput' : ''} type='text' id='rentabilidade' {...register('rentabilidade')}/>
-                  {formState.errors.rentabilidade && (
-                    <InputError type={formState.errors.rentabilidade.type}  field='rentabilidade'/>
-                  )}
+                  <ContentInput>
+                    <label className={formState.errors.rentabilidade ? 'error' : ''} id="rentabilidade" >Rentabilidade</label>
+                    <input className={formState.errors.rentabilidade ? 'errorInput' : ''} type='text' id='rentabilidade' {...register('rentabilidade')}/>
+                    {formState.errors.rentabilidade && (
+                      <InputError type={formState.errors.rentabilidade.type}  field='rentabilidade'/>
+                    )}
+                  </ContentInput>
 
                   <label id="cdi" >CDI (ao ano)</label>
                   <input type='text' disabled value={indicadores[0]?.valor +'%'} id='cdi'/>
