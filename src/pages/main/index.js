@@ -96,7 +96,7 @@ export function Main() {
                   
 
                   <ContentInput>
-                    <label id="aporte" className={formState.errors.aporte ? 'error' : ''} >Aporte Inicial</label>
+                    <label htmlFor="aporte" className={formState.errors.aporte ? 'error' : ''} >Aporte Inicial</label>
                     <InputMoney  className={formState.errors.aporte ? 'errorInput' : ''} type='text' id='aporte' {...register('aporte')}/>
                     {formState.errors.aporte && (
                     <InputError type={formState.errors.aporte.type}  field='aporte'/>
@@ -104,14 +104,14 @@ export function Main() {
                   </ContentInput>
                   
                   <ContentInput>
-                    <label id="prazo" >prazo (ao mes)</label>
+                    <label htmlFor="prazo" >prazo (ao mes)</label>
                     <input className={formState.errors.prazo ? 'errorInput' : ''} type='text' id='prazo' {...register('prazo')}/>
                     {formState.errors.prazo && (
                       <InputError type={formState.errors.prazo.type}  field='prazo'/>
                     )}
                   </ContentInput>
 
-                  <label id="ipca" >IPCA (ao ano)</label>
+                  <label htmlFor="ipca" >IPCA (ao ano)</label>
                   <input type='text' disabled value={indicadores[1]?.valor +'%'} id='ipca'/>
                   
 
@@ -140,7 +140,7 @@ export function Main() {
                   </Buttons>
                   
                   <ContentInput>
-                    <label id="aportemes" className={formState.errors.aportemes ? 'error' : ''} >Aporte Mensal</label>
+                    <label htmlFor="aportemes" className={formState.errors.aportemes ? 'error' : ''} >Aporte Mensal</label>
                     <InputMoney className={formState.errors.aportemes ? 'errorInput' : ''} type='text' id='aportemes' {...register('aportemes')}/>
                     {formState.errors.aportemes && (
                       <InputError type={formState.errors.aportemes.type}  field='aportemes'/>
@@ -149,14 +149,14 @@ export function Main() {
                   </ContentInput>
 
                   <ContentInput>
-                    <label className={formState.errors.rentabilidade ? 'error' : ''} id="rentabilidade" >Rentabilidade</label>
+                    <label className={formState.errors.rentabilidade ? 'error' : ''} htmlFor="rentabilidade" >Rentabilidade</label>
                     <input className={formState.errors.rentabilidade ? 'errorInput' : ''} type='text' id='rentabilidade' {...register('rentabilidade')}/>
                     {formState.errors.rentabilidade && (
                       <InputError type={formState.errors.rentabilidade.type}  field='rentabilidade'/>
                     )}
                   </ContentInput>
 
-                  <label id="cdi" >CDI (ao ano)</label>
+                  <label htmlFor="cdi" >CDI (ao ano)</label>
                   <input type='text' disabled value={indicadores[0]?.valor +'%'} id='cdi'/>
                     
 
